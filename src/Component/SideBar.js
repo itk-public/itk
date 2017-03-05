@@ -22,19 +22,22 @@ export default class SideBar extends Component {
     handleClick = (name) => {
         switch (name) {
             case "/topics":
-                this.setState({ topics: true, jobs: false, remote: false, posts:false });
+                this.setState({ topics: true, adduser:false, jobs: false, remote: false, posts:false });
+                break;
+            case "/adduser":
+                this.setState({ topics: false, adduser:true, jobs: false, remote: false, posts:true });
                 break;
             case "/jobs":
-                this.setState({ topics: false, jobs: true, remote: false, posts:false });
+                this.setState({ topics: false, adduser:false, jobs: true, remote: false, posts:false });
                 break;
             case "/remote":
-                this.setState({ topics: false, jobs: false, remote: true, posts:false });
+                this.setState({ topics: false, adduser:false, jobs: false, remote: true, posts:false });
                 break;
             case "/posts":
-                this.setState({ topics: false, jobs: false, remote: false, posts:true });
+                this.setState({ topics: false, adduser:false, jobs: false, remote: false, posts:true });
                 break;
             default:
-                this.setState({ topics: false, jobs: false, remote: false, posts:false });
+                this.setState({ topics: false, adduser:false, jobs: false, remote: false, posts:false });
         } 
     }
 
@@ -65,6 +68,11 @@ export default class SideBar extends Component {
                                 activeClassName={ this.state.topics ? 'active' : '' }
                                 onClick={() => this.handleClick('/topics')}>用户管理</Link>
                            </li> 
+                           <li>
+                                <Link to="/adduser"
+                                activeClassName={ this.state.adduser ? 'active' : '' }
+                                onClick={() => this.handleClick('/adduser')}>添加用户</Link>
+                           </li>
                         </ul>           
                     </li>
                     <li className="sidebar-item">
@@ -74,7 +82,7 @@ export default class SideBar extends Component {
                             招聘
                         </Link>
                     </li>
-                    <li className="sidebar-item">
+                    <li className="sidebar-item"> 
                         <Link to="/remote"
                               activeClassName={ this.state.remote ? 'active' : '' }
                               onClick={() => this.handleClick('/remote')}>

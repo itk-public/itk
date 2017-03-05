@@ -11,6 +11,7 @@ import NewTopic from '../Component/NewTopic';
 import App from '../App';
 import Posts from '../Component/Posts';
 import Login from '../Component/Login'; 
+import Adduser from "../Component/adduser";
 
 
 const RouteConfig = (
@@ -18,6 +19,7 @@ const RouteConfig = (
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="topics" component={Topics}/>
+      <Route path="adduser" component={Adduser}/>
       <Route path="topics?type=:name" component={Topics}/>
       <Route path="topics/new" component={NewTopic}/>
       <Route path="topics/:id" component={Topic}/>

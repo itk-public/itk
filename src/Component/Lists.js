@@ -7,14 +7,14 @@ export default class Lists extends Component {
   render() {
     let listItems = this.props.topics.map(function (topic) {
       return (
-        <tr className="user-item" key={topic.id}>
+        <tr key={topic.id}>
           
         </tr>
       );
     });
     return( 
       <div>
-        <table className='table'>
+        <table className='table table-hover'>
           <thead>
             <tr>
               <th>登录名</th>

@@ -12,7 +12,7 @@ const postsByReddit = (state={}, action) => {
           type: action.type,
           topics: action.results,
         }
-      }
+      } 
     case TOPIC:
       return {
         ['results']: {
