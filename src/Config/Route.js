@@ -10,7 +10,7 @@ import Programmer from '../Component/Programmer';
 import NewTopic from '../Component/NewTopic';
 import App from '../App';
 import Posts from '../Component/Posts';
-import Login from '../Component/Login';
+import Login from '../Component/Login'; 
 
 
 const RouteConfig = (
@@ -30,5 +30,5 @@ const RouteConfig = (
     </Route>
   </Router>
 );
-
+ 
 export default RouteConfig;

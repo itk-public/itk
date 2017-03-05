@@ -7,25 +7,25 @@ export default class Lists extends Component {
   render() {
     let listItems = this.props.topics.map(function (topic) {
       return (
-        <div className="media topic" key={topic.id}>
-          <a className="media-left" href="#">
-            <img className='img-circle img-width-50' src={topic.user.avatar_url} role="presentation" />
-          </a>
-          <div className="media-body">
-            <Link to={`/topics/${topic.id}`} className='title'>{topic.title}</Link>
-            {topic.excellent && <span ref='data' className='glyphicon glyphicon-heart left' title='精华帖'></span>}
-            <TopicInfo topic={topic}></TopicInfo>
-
-          </div>
-          <div className='media-right count'>
-            <span className='badge'>{topic.replies_count}</span>
-          </div>
-        </div>
+        <tr className="user-item" key={topic.id}>
+          
+        </tr>
       );
     });
-    return(
-      <div className='panel-body'>
-        { listItems }
+    return( 
+      <div>
+        <table className='table'>
+          <thead>
+            <tr>
+              <th>登录名</th>
+              <th>用户名</th>
+              <th>邮箱</th>
+              <th>状态</th>
+              <th>修改</th>
+            </tr>
+          </thead>
+          { listItems }
+        </table>
       </div>
     );
   }

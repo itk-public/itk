@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../Stylesheets/SideBar.css'
-import classname from 'classnames'
-import {Link} from 'react-router'
+import classname from 'classnames';
+import {Link} from 'react-router';
 
 export default class SideBar extends Component {
     constructor(props) {
@@ -10,11 +10,12 @@ export default class SideBar extends Component {
             topics: false,
             jobs: false,
             remote: false,
-            post: false
+            post: false,
+            isShow: false
         }
     }
 
-    componentDidMount() {
+    componentDidMount() { 
         this.handleClick(this.props.path);
     }
 
@@ -34,40 +35,53 @@ export default class SideBar extends Component {
                 break;
             default:
                 this.setState({ topics: false, jobs: false, remote: false, posts:false });
-        }
+        } 
+    }
+
+    clickDisplaySubmenu(){
+
+        this.setState({
+            isShow : !this.state.isShow
+        });
+
     }
 
     render() {
+
+
         return (
             <div id="sidebar-wrapper">
-                <ul className="sidebar-nav">
+                <ul className="sidebar-nav"> 
                     <li className="sidebar-brand">
                         <Link to='/'>
                             ITK
                         </Link>
                     </li>
-                    <li>
-                        <Link to="/topics"
-                              activeClassName={ this.state.topics ? 'active' : '' }
-                              onClick={() => this.handleClick('/topics')}>
-                            社区
-                        </Link>
+                    <li className = {classname("sidebar-item",{"active":this.state.isShow})}>
+                        <a href="javascript:;" onClick={this.clickDisplaySubmenu.bind(this)}>系统管理</a>
+                        <ul className="sub-menu">
+                           <li>
+                                <Link to="/topics"
+                                activeClassName={ this.state.topics ? 'active' : '' }
+                                onClick={() => this.handleClick('/topics')}>用户管理</Link>
+                           </li> 
+                        </ul>           
                     </li>
-                    <li>
+                    <li className="sidebar-item">
                         <Link to="/jobs"
                               activeClassName={ this.state.jobs ? 'active' : '' }
                               onClick={() => this.handleClick('/jobs')}>
                             招聘
                         </Link>
                     </li>
-                    <li>
+                    <li className="sidebar-item">
                         <Link to="/remote"
                               activeClassName={ this.state.remote ? 'active' : '' }
                               onClick={() => this.handleClick('/remote')}>
                             远程工作
                         </Link>
                     </li>
-                    <li>
+                    <li className="sidebar-item">
                         <Link to="/posts"
                               activeClassName={ this.state.posts ? 'active' : '' }
                               onClick={() => this.handleClick('/posts')}>Posts</Link>
@@ -77,3 +91,4 @@ export default class SideBar extends Component {
         )
     }
 }
+

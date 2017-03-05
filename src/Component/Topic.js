@@ -16,7 +16,7 @@ export default class Topic extends Component {
         { !isEmpty &&
           <div className='panel panel-default topic-wrap'>
             <div className='panel-heading media'>
-              <div className='media-body'>
+              <div className='media-body'> 
                 <h4>{this.props.results.topic.title}</h4>
                 <TopicInfo topic={this.props.results.topic} isShow='true'></TopicInfo>
               </div>

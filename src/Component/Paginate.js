@@ -11,7 +11,7 @@ export default class Paginate extends Component {
       pageNum: 20,
       perPage: 20
     }
-  }
+  } 
 
   handlePageClick = (data) => {
     let selected = data.selected;

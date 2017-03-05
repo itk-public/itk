@@ -52,27 +52,35 @@ body {
   padding: 0;
   list-style: none; }
 
-.sidebar-nav li {
+.sidebar-nav .sidebar-item {
+  color: #fff;
   text-indent: 20px;
   line-height: 40px; }
 
-.sidebar-nav li a {
+.sidebar-nav .sidebar-item .sub-menu {
+  display: none;
+  margin-left: 20px; }
+
+.sidebar-nav .active .sub-menu {
+  display: block; }
+
+.sidebar-nav .sidebar-item a {
   display: block;
   text-decoration: none;
   color: #999999; }
 
-.sidebar-nav li a:hover {
+.sidebar-nav .sidebar-item a:hover {
   text-decoration: none;
   color: #fff;
   background: rgba(255, 255, 255, 0.2); }
 
-.sidebar-nav li a.active {
+.sidebar-nav .sidebar-item a.active {
   text-decoration: none;
   color: #fff;
   background: rgba(255, 255, 255, 0.2); }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.sidebar-nav .sidebar-item a:active,
+.sidebar-nav .sidebar-item a:focus {
   text-decoration: none; }
 
 .sidebar-nav > .sidebar-brand {

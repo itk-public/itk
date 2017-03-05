@@ -7,6 +7,8 @@ var path = __dirname + '/dist/';
 
 var plugins = [];
 
+console.log( process.argv.indexOf('-p') > -1 )
+
 if (process.argv.indexOf('-p') > -1) { //生产环境
     plugins.push(new webpack.DefinePlugin({ //编译成生产版本
         'process.env': {

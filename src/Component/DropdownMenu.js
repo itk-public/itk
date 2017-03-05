@@ -17,7 +17,7 @@ export default class Home extends Component {
 
   toggleDropdownMenu() {
     this.setState({ menuopen: ! this.state.menuopen })
-  }
+  } 
 
   handleClick = (name) => {
     this.props.onClick()
