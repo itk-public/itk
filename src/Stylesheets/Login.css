@@ -1,6 +1,9 @@
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto; }
-  .form-signin .form-signin-heading {
-    text-align: center; }
+.login-form {
+  width: 500px;
+  margin: 200px auto; }
+  .login-form .input-group {
+    margin: 10px 0; }
+  .login-form .btn {
+    display: block;
+    width: 200px;
+    margin: 0 auto; }

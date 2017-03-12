@@ -14,10 +14,10 @@ class App extends Component {
     let layout = '';
     const childrenWithProps = React.Children.map(this.props.children,
         (child) => cloneElement(child, {
-          actions: this.props.actions,
-          results: this.props.results
+          ...this.props
         })
     );
+    
 
     let pathname = this.props.location.pathname;
 
@@ -26,7 +26,7 @@ class App extends Component {
                 {childrenWithProps}
                </div>
       return (
-        <div>
+        <div> 
           {layout}
         </div>
       )
@@ -34,20 +34,20 @@ class App extends Component {
       layout = <div >
           {childrenWithProps}
       </div>;
-
     return (
       <div id="wrapper">
           <div id="sidebar-wrapper">
               <SideBar path={this.props.location.pathname}/>
           </div>
           <div id="page-content-wrapper">
-              <Navbar/>
+              <Navbar/> 
               { layout }
           </div>
       </div>
     );
-  }
+  } 
 }
+
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(actions, dispatch)
@@ -67,13 +67,13 @@ const mapStateToProps = state => {
         break
       default:
         {}
-    }
+    }  
   }
   return {
     results: {
       replies,
       topics,
-      topic
+      topic 
     }
   }
 }

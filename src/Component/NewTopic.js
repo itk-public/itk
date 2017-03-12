@@ -15,5 +15,5 @@ export default class NewTopic extends Component {
     return (
       <Markdown code={this.state.code}/>
     );
-  }
+  } 
 }

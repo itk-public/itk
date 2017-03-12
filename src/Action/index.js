@@ -1,3 +1,5 @@
+import config_url from "../Config/configUrl";
+
 export const BASIC_URL = 'https://ruby-china.org/api/v3'
 export const TOPICS = 'TOPICS'
 export const TOPIC = 'TOPIC'
@@ -8,17 +10,17 @@ const received = (type, json) => {
     case TOPICS:
       return {
         type: type,
-        results: json.topics
+        results: json.topics 
       }
-    case TOPIC:
+    case TOPIC: 
       return {
         type: type,
-        results: {
+        results: { 
           replies: json.replies,
           topic: json.topic
         }
       }
-    case POST:
+    case POST: 
       return {
         type: type,
       }
@@ -26,6 +28,8 @@ const received = (type, json) => {
       return {}
   }
 };
+
+
 
 const process = (type, results) => {
   switch (type) {
@@ -39,6 +43,18 @@ const process = (type, results) => {
   }
 };
 
+
+export const checkLogin = () => {
+    return {
+      type : "POST_LOGIN",
+      payload : {
+        request : {
+          url : "/back/backuser/loginBackUser"
+        }
+      }
+    }
+}
+
 export const fetchTopics = options => (dispatch) => {
   console.log(options)
   const type = 'TOPICS'
@@ -47,7 +63,7 @@ export const fetchTopics = options => (dispatch) => {
   if (options && options.node_id){
     node = `node_id=${options.node_id}`
   }
-  if (options) {
+  if (options) { 
     url = `${BASIC_URL}/topics?${node}&limit=${options.limit||20}&type=${options.type||'last_actived'}&offset=${options.offset||0}`
   }
   console.log('url', url)

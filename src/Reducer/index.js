@@ -1,4 +1,5 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+import { combineForms } from 'react-redux-form';
 import {
   TOPIC,
   TOPICS
@@ -9,8 +10,8 @@ const postsByReddit = (state={}, action) => {
     case TOPICS:
       return {
         ['results']: {
-          type: action.type,
-          topics: action.results,
+          type: action.type, 
+          topics: action.results
         }
       } 
     case TOPIC:
@@ -19,15 +20,47 @@ const postsByReddit = (state={}, action) => {
           type: action.type,
           topic: action.results.topic,
           replies: action.results.replies
-        }
-      }
+        } 
+      } 
     default:
       return state
   }
 }
 
+
+
+// const authUser = ( state = {}, action ){
+//   const { type } = action;
+
+//   switch ( type ){
+//     case AUTH_USER : 
+//     return 
+//   }
+// }
+
+const initialForm = {
+  userManage : {  
+      loginName: '',
+      userName: '',
+      email: ''
+  },
+  addUser : {
+      userName: '',
+      password: '',
+      email: '',
+      phone : ""
+  },
+  login : {
+      username : "",
+      password : ""
+  }
+}
+ 
+
+
 const rootReducer = combineReducers({
-  postsByReddit
-})
+  postsByReddit,
+  deep : combineForms({...initialForm},'deep')
+}) 
 
 export default rootReducer

@@ -21,7 +21,7 @@ export default class Lists extends Component {
               <th>用户名</th>
               <th>邮箱</th>
               <th>状态</th>
-              <th>修改</th>
+              <th>修改</th> 
             </tr>
           </thead>
           { listItems }

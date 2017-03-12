@@ -20,37 +20,36 @@ export default class SideBar extends Component {
     }
 
     handleClick = (name) => {
-        switch (name) {
-            case "/topics":
-                this.setState({ topics: true, adduser:false, jobs: false, remote: false, posts:false });
-                break;
-            case "/adduser":
-                this.setState({ topics: false, adduser:true, jobs: false, remote: false, posts:true });
-                break;
-            case "/jobs":
-                this.setState({ topics: false, adduser:false, jobs: true, remote: false, posts:false });
-                break;
-            case "/remote":
-                this.setState({ topics: false, adduser:false, jobs: false, remote: true, posts:false });
-                break;
-            case "/posts":
-                this.setState({ topics: false, adduser:false, jobs: false, remote: false, posts:true });
-                break;
-            default:
-                this.setState({ topics: false, adduser:false, jobs: false, remote: false, posts:false });
-        } 
+        // switch (name) {
+        //     case "/topics":
+        //         this.setState({ topics: true, adduser:false, jobs: false, remote: false, posts:false });
+        //         break;
+        //     case "/adduser":
+        //         this.setState({ topics: false, adduser:true, jobs: false, remote: false, posts:true });
+        //         break;
+        //     case "/jobs":
+        //         this.setState({ topics: false, adduser:false, jobs: true, remote: false, posts:false });
+        //         break;
+        //     case "/remote":
+        //         this.setState({ topics: false, adduser:false, jobs: false, remote: true, posts:false });
+        //         break;
+        //     case "/posts":
+        //         this.setState({ topics: false, adduser:false, jobs: false, remote: false, posts:true });
+        //         break;
+        //     default:
+        //         this.setState({ topics: false, adduser:false, jobs: false, remote: false, posts:false });
+        // } 
     }
 
     clickDisplaySubmenu(){
 
         this.setState({
-            isShow : !this.state.isShow
+            isShow : true
         });
 
     }
 
     render() {
-
 
         return (
             <div id="sidebar-wrapper">
@@ -64,7 +63,7 @@ export default class SideBar extends Component {
                         <a href="javascript:;" onClick={this.clickDisplaySubmenu.bind(this)}>系统管理</a>
                         <ul className="sub-menu">
                            <li>
-                                <Link to="/topics"
+                                <Link to="/userManage"
                                 activeClassName={ this.state.topics ? 'active' : '' }
                                 onClick={() => this.handleClick('/topics')}>用户管理</Link>
                            </li> 
@@ -75,12 +74,16 @@ export default class SideBar extends Component {
                            </li>
                         </ul>           
                     </li>
-                    <li className="sidebar-item">
-                        <Link to="/jobs"
+                    <li className = {classname("sidebar-item",{"active":this.state.isShow})}>
+                        <a href="javascript:;" onClick={this.clickDisplaySubmenu.bind(this)}>商品管理</a>
+                        <ul className="sub-menu">
+                           <li>
+                                <Link to="/jobs"
                               activeClassName={ this.state.jobs ? 'active' : '' }
-                              onClick={() => this.handleClick('/jobs')}>
-                            招聘
-                        </Link>
+                              onClick={() => this.handleClick('/jobs')}>分类管理</Link>
+                           </li>
+                        </ul> 
+                        
                     </li>
                     <li className="sidebar-item"> 
                         <Link to="/remote"
@@ -100,3 +103,8 @@ export default class SideBar extends Component {
     }
 }
 
+const menuData = [
+    {
+        text : '分类管理'
+    }
+]

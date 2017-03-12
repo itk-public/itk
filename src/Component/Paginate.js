@@ -19,7 +19,7 @@ export default class Paginate extends Component {
 
     this.setState({offset: offset}, () => {
       let options = this.props.options
-      options.offset = this.state.offset
+      options.offset = this.state.offset 
       this.props.actions.fetchTopics(options)
     });
     ReactDOM.findDOMNode(this).parentNode.scrollIntoView()

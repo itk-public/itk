@@ -1,8 +1,10 @@
 import React from 'react';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
+import ajax from "@fdaciuk/ajax";
+
 import Home from '../Component/Home';
-import Topics from '../Component/Topics';
+import UserManage from '../Component/userManage';
 import Topic from '../Component/Topic';
 import Jobs from '../Component/Jobs';
 import Remote from '../Component/Remote';
@@ -12,17 +14,16 @@ import App from '../App';
 import Posts from '../Component/Posts';
 import Login from '../Component/Login'; 
 import Adduser from "../Component/adduser";
+ 
 
+const token = sessionStorage.token;
 
-const RouteConfig = (
+const RouteConfig = ( 
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
-    <Route path="/" component={App}>
+    <Route path="/" component={ token ? App : Login }>
       <IndexRoute component={Home} />
-      <Route path="topics" component={Topics}/>
-      <Route path="adduser" component={Adduser}/>
-      <Route path="topics?type=:name" component={Topics}/>
-      <Route path="topics/new" component={NewTopic}/>
-      <Route path="topics/:id" component={Topic}/>
+      <Route path="userManage" component={UserManage}/>
+      <Route path="adduser" component={Adduser}/> 
       <Route path="remote" component={Remote}/>
       <Route path="programmer" component={Programmer}/>
       <Route path="jobs" component={Jobs}/>
