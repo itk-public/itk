@@ -16,12 +16,12 @@ const received = (type, json) => {
       return {
         type: type,
         results: { 
-          replies: json.replies,
+          replies: json.replies, 
           topic: json.topic
         }
-      }
+      } 
     case POST: 
-      return {
+      return { 
         type: type,
       }
     default:
@@ -43,17 +43,6 @@ const process = (type, results) => {
   }
 };
 
-
-export const checkLogin = () => {
-    return {
-      type : "POST_LOGIN",
-      payload : {
-        request : {
-          url : "/back/backuser/loginBackUser"
-        }
-      }
-    }
-}
 
 export const fetchTopics = options => (dispatch) => {
   console.log(options)

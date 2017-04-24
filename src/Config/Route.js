@@ -1,20 +1,20 @@
 import React from 'react';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
-import ajax from "@fdaciuk/ajax";
-
 import Home from '../Component/Home';
 import UserManage from '../Component/userManage';
-import Topic from '../Component/Topic';
-import Jobs from '../Component/Jobs';
-import Remote from '../Component/Remote';
-import Programmer from '../Component/Programmer';
-import NewTopic from '../Component/NewTopic';
+import Addgoods from '../Component/addgoods';
 import App from '../App';
 import Posts from '../Component/Posts';
 import Login from '../Component/Login'; 
 import Adduser from "../Component/adduser";
- 
+import ClassManage from "../Component/classmanage";
+//首页管理
+import HomeManagement from "../Component/homeManagement";
+//页面配置
+import PageConfig from "../Component/pageConfig";
+  
+sessionStorage.token = 1;
 
 const token = sessionStorage.token;
 
@@ -24,14 +24,13 @@ const RouteConfig = (
       <IndexRoute component={Home} />
       <Route path="userManage" component={UserManage}/>
       <Route path="adduser" component={Adduser}/> 
-      <Route path="remote" component={Remote}/>
-      <Route path="programmer" component={Programmer}/>
-      <Route path="jobs" component={Jobs}/>
-      <Route path="sites" component={Jobs}/>
-      <Route path="posts" component={Posts}/>
+      <Route path="addgoods" component={Addgoods}/>
       <Route path="login" component={Login}/>
+      <Route path="classmanage" component={ClassManage}/>
+      <Route path="homeManagement" component={HomeManagement} />
+      <Route path="homeManagement/:id" component={PageConfig} />
     </Route>
-  </Router>
+  </Router> 
 );
  
 export default RouteConfig;

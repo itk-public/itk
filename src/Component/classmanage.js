@@ -4,8 +4,7 @@ import Lists from './Lists';
 import Paginate from './Paginate';
 
 
-
-export default class Jobs extends Component {
+export default class ClassManage extends Component {
   constructor(props) {
     super(props);
     // node_id: 25 是招聘节点

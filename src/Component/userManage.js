@@ -7,7 +7,16 @@ import Lists from './Lists';
 
 import { Form, Control } from 'react-redux-form';
 
-
+const TextInput = props => {  
+    return (
+        <div className="col-md-6">
+          <div className="input-group">
+            <span className="input-group-addon" id="basic-addon1">{props.label}</span>
+            <input type="text" className="form-control" {...props} placeholder={props.label} />
+          </div>
+        </div>
+    )
+}
 
 class MyForm extends React.Component {
   handleSubmit(values) {
@@ -24,31 +33,22 @@ class MyForm extends React.Component {
         <div className="row">
           <Control model="deep.userManage.loginName" validators={{
             required: (val) => val && val.length
-        }} mapProps = {{ value : props => props.viewValue }} component = {TextInput} controlProps = {{ label : "登录名" }} />
+        }} mapProps={{ value : props => props.viewValue }} component={TextInput} controlProps={{ label : "登录名" }} />
 
-          <Control model="deep.userManage.userName" mapProps = {{ value : props => props.viewValue }} component = {TextInput} controlProps = {{ label : "用户名" }} />
+          <Control model="deep.userManage.userName" mapProps={{ value : props => props.viewValue }} component={TextInput} controlProps={{ label : "用户名" }} />
         </div>
 
         <div className="row">
-          <Control model="deep.userManage.email" mapProps = {{ value : props => props.viewValue }} component = {TextInput} controlProps = {{ label : "邮箱" }} />
+          <Control model="deep.userManage.email" mapProps={{ value : props => props.viewValue }} component={TextInput} controlProps={{ label : "邮箱" }} />
 
-          <button className = "btn btn-default" >搜索</button>
+          <button className="btn btn-default" >搜索</button>
         </div>
       </Form>
     );
   }
 }
 
-const TextInput = props => {  
-    return (
-        <div className="col-md-6">
-          <div className="input-group">
-            <span className="input-group-addon" id="basic-addon1">{props.label}</span>
-            <input type="text" className="form-control" {...props} placeholder={props.label} />
-          </div>
-        </div>
-    )
-}
+
 
 
 export default class UserManage extends Component {

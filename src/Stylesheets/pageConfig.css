@@ -1,0 +1,14 @@
+.components {
+	padding: 10px;
+ 	border-radius: 10px;
+	border: 1px solid #eee;
+}
+
+.components .component-item {
+	display: inline-block;
+	font-size: 14px;
+}
+
+.table-container {
+	width: 600px;
+}

@@ -2,7 +2,34 @@ import React, { Component } from 'react'
 import '../Stylesheets/SideBar.css'
 import classname from 'classnames';
 import {Link} from 'react-router';
-
+let sidebar = [
+    {
+        text : "系统管理",
+        submenu : [
+            {
+                text : "用户管理",
+                href : "userManage"
+            },
+            {
+                text : "添加用户",
+                href : "adduser"
+            }
+        ]
+    },
+    {
+        text : "商品管理",
+        submenu : [
+            {
+                text : "分类管理",
+                href : "classmanage"
+            },
+            {
+                text : "添加商品",
+                href : "addgoods"
+            }
+        ]
+    }
+];
 export default class SideBar extends Component {
     constructor(props) {
         super(props);
@@ -41,7 +68,7 @@ export default class SideBar extends Component {
         // } 
     }
 
-    clickDisplaySubmenu(){
+    clickDisplaySubmenu(){ 
 
         this.setState({
             isShow : true
@@ -59,10 +86,10 @@ export default class SideBar extends Component {
                             ITK
                         </Link>
                     </li>
-                    <li className = {classname("sidebar-item",{"active":this.state.isShow})}>
+                    <li className={classname("sidebar-item",{"active":this.state.isShow})}>
                         <a href="javascript:;" onClick={this.clickDisplaySubmenu.bind(this)}>系统管理</a>
                         <ul className="sub-menu">
-                           <li>
+                           <li> 
                                 <Link to="/userManage"
                                 activeClassName={ this.state.topics ? 'active' : '' }
                                 onClick={() => this.handleClick('/topics')}>用户管理</Link>
@@ -74,28 +101,31 @@ export default class SideBar extends Component {
                            </li>
                         </ul>           
                     </li>
-                    <li className = {classname("sidebar-item",{"active":this.state.isShow})}>
+                    <li className={classname("sidebar-item",{"active":this.state.isShow})}>
                         <a href="javascript:;" onClick={this.clickDisplaySubmenu.bind(this)}>商品管理</a>
                         <ul className="sub-menu">
                            <li>
-                                <Link to="/jobs"
+                                <Link to="/classmanage"
                               activeClassName={ this.state.jobs ? 'active' : '' }
                               onClick={() => this.handleClick('/jobs')}>分类管理</Link>
+                           </li>
+                           <li>
+                                <Link to="/addgoods"
+                              activeClassName={ this.state.jobs ? 'active' : '' }
+                              onClick={() => this.handleClick('/jobs')}>添加商品</Link>
                            </li>
                         </ul> 
                         
                     </li>
-                    <li className="sidebar-item"> 
-                        <Link to="/remote"
-                              activeClassName={ this.state.remote ? 'active' : '' }
-                              onClick={() => this.handleClick('/remote')}>
-                            远程工作
-                        </Link>
-                    </li>
-                    <li className="sidebar-item">
-                        <Link to="/posts"
-                              activeClassName={ this.state.posts ? 'active' : '' }
-                              onClick={() => this.handleClick('/posts')}>Posts</Link>
+                    <li className={classname("sidebar-item",{"active":this.state.isShow})}>
+                        <a href="javascript:;" onClick={this.clickDisplaySubmenu.bind(this)}>内容管理</a>
+                        <ul className="sub-menu">
+                           <li>
+                                <Link to="/homeManagement"
+                              onClick={() => this.handleClick('/jobs')}>首页管理</Link>
+                           </li>
+                        </ul> 
+                        
                     </li>
                 </ul>
             </div>
@@ -103,8 +133,5 @@ export default class SideBar extends Component {
     }
 }
 
-const menuData = [
-    {
-        text : '分类管理'
-    }
-]
+
+

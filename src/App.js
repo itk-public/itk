@@ -17,7 +17,6 @@ class App extends Component {
           ...this.props
         })
     );
-    
 
     let pathname = this.props.location.pathname;
 

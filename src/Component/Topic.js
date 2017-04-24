@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import TopicInfo from './TopicInfo';
-import Replies from './Replies';
 import '../Stylesheets/Markdown.css';
 
 export default class Topic extends Component {

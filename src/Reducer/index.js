@@ -13,9 +13,9 @@ const postsByReddit = (state={}, action) => {
           type: action.type, 
           topics: action.results
         }
-      } 
+      }  
     case TOPIC:
-      return {
+      return { 
         ['results']: {
           type: action.type,
           topic: action.results.topic,
@@ -26,17 +26,6 @@ const postsByReddit = (state={}, action) => {
       return state
   }
 }
-
-
-
-// const authUser = ( state = {}, action ){
-//   const { type } = action;
-
-//   switch ( type ){
-//     case AUTH_USER : 
-//     return 
-//   }
-// }
 
 const initialForm = {
   userManage : {  
@@ -53,9 +42,18 @@ const initialForm = {
   login : {
       username : "",
       password : ""
+  },
+  homeManagement : {
+    page1 : {
+      city : "",//城市
+      channel : "",//渠道
+      state : "",//状态
+      id : "",
+      pageName : ""
+    }
   }
 }
- 
+  
 
 
 const rootReducer = combineReducers({

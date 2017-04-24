@@ -11,7 +11,17 @@ export default class Adduser extends Component {
 		)
 	}
 } 
-
+ 
+const TextInput = props => {  
+    return (
+        <div className="col-md-6">
+          <div className="input-group">
+            <span className="input-group-addon" id="basic-addon1">{props.label}</span>
+            <input type="text" className="form-control" {...props} placeholder={props.label} />
+          </div>
+        </div>
+    )
+}
 
 class MyForm extends React.Component {
   handleSubmit(values) {
@@ -28,28 +38,19 @@ class MyForm extends React.Component {
         <div className="row">
           <Control model="deep.addUser.userName" validators={{
             required: (val) => val && val.length
-        }} mapProps = {{ value : props => props.viewValue }} component = {TextInput} controlProps = {{ label : "用户名" }} />
+        }} mapProps={{ value : props => props.viewValue }} component={TextInput} controlProps={{ label : "用户名" }} />
 
-          <Control model="deep.addUser.password" mapProps = {{ value : props => props.viewValue }} component = {TextInput} controlProps = {{ label : "密码" }} />
+          <Control model="deep.addUser.password" mapProps={{ value : props => props.viewValue }} component={TextInput} controlProps={{ label : "密码" }} />
         </div>
 
         <div className="row">
-          <Control model="deep.addUser.email" mapProps = {{ value : props => props.viewValue }} component = {TextInput} controlProps = {{ label : "邮箱" }} />
-          <Control model="deep.addUser.phone" mapProps = {{ value : props => props.viewValue }} component = {TextInput} controlProps = {{ label : "手机号" }} />
-          <button className = "btn btn-default" >添加</button>
+          <Control model="deep.addUser.email" mapProps={{ value : props => props.viewValue }} component={TextInput} controlProps={{ label : "邮箱" }} />
+          <Control model="deep.addUser.phone" mapProps={{ value : props => props.viewValue }} component={TextInput} controlProps={{ label : "手机号" }} />
+          <button className="btn btn-default" >添加</button>
         </div>
       </Form>
     );
   }
 }
 
-const TextInput = props => {  
-    return (
-        <div className="col-md-6">
-          <div className="input-group">
-            <span className="input-group-addon" id="basic-addon1">{props.label}</span>
-            <input type="text" className="form-control" {...props} placeholder={props.label} />
-          </div>
-        </div>
-    )
-}
+

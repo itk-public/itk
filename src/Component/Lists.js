@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-import TopicInfo from './TopicInfo';
 import '../Stylesheets/Lists.css';
 
 export default class Lists extends Component {
